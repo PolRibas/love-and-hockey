@@ -1,7 +1,7 @@
 // components/TeamModal.jsx
 
+import { SelectableTeam } from '@/data/teams.2024';
 import { motion } from 'framer-motion';
-import { SelectableTeam } from './teams-circle';
 
 export const TeamModal = ({ team, isOpen, onClose }: {
   team: SelectableTeam;
