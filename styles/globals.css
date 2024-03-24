@@ -25,6 +25,13 @@ body {
     text-wrap: balance;
   }
 }
+.bgBlue {
+  background-color: #3b82f6;
+}
+
+.bgRed {
+  background-color: #ef4444;
+}
 
 /* @keyframes backgroundSlide {
   0% { background-position: 0% 50%; }

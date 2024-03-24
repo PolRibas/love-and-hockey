@@ -15,13 +15,13 @@ export const teams2024: SelectableTeam[] = [
     },
     {
         name: "Equipo Rojo",
-        color: "bg-red-500",
+        color: "bgRed",
         captain: "Pendiente",
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
         name: "Equipo Azul",
-        color: "bg-blue-500",
+        color: "bgBlue",
         captain: "Pendiente",
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },

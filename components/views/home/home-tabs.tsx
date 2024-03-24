@@ -20,13 +20,13 @@ export const HomeTabs = ({ games, gameTypeRounds, teams }: { games: Array<Array<
       <div className="bg-white rounded-lg shadow-lg">
         <div className="flex border-b">
           <button
-            className={`flex-1 py-2 text-xl font-semibold ${activeTab === 'schedule' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+            className={`flex-1 py-4 text-xl font-semibold ${activeTab === 'schedule' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
             onClick={() => setActiveTab('schedule')}
           >
             Calendario
           </button>
           <button
-            className={`flex-1 py-2 text-xl font-semibold ${activeTab === 'standings' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+            className={`flex-1 py-4 text-xl font-semibold ${activeTab === 'standings' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
             onClick={() => setActiveTab('standings')}
           >
             Clasificación
