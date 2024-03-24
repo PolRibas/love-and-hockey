@@ -25,3 +25,19 @@ body {
     text-wrap: balance;
   }
 }
+
+/* @keyframes backgroundSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.background-animate {
+  background: linear-gradient(270deg, #fe8c00, #f83600, #f9d423, #24fe41, #3a47d5, #00c6ff);
+  background-size: 600% 600%;
+
+  -webkit-animation: backgroundSlide 30s ease infinite;
+  -moz-animation: backgroundSlide 30s ease infinite;
+  -o-animation: backgroundSlide 30s ease infinite;
+  animation: backgroundSlide 30s ease infinite;
+} */
