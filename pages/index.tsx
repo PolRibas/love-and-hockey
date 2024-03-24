@@ -37,7 +37,7 @@ const Home = () => {
       <Head>
         <title>Love & Hockey 2024</title>
         <meta name="description" content="Se avecina el torneo de hockey hierba senior del club: habilidad en la cancha, cerveza en la mano, pizza en el plato y fiesta al caer la noche. Trae tu mejor atuendo y espíritu competitivo. ¡Empecemos el verano con amor y buen hockey!" />
-        <meta property="og:title" content="Gran Inicio de Verano - Torneo de Hockey Hierba - Catalonia Senior" />
+        <meta property="og:title" content="Se avecina el torneo de hockey hierba senior del club - Catalonia Senior" />
         <meta property="og:description" content="Se avecina el torneo de hockey hierba senior del club: habilidad en la cancha, cerveza en la mano, pizza en el plato y fiesta al caer la noche.  Trae tu mejor atuendo y espíritu competitivo. ¡Empecemos el verano con amor y buen hockey!" />
         <meta property="og:image" content="/logo.webp" /> 
         <meta property="og:url" content="https://love-and-hockey.vercel.app/" />
