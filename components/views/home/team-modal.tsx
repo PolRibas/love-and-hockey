@@ -2,13 +2,19 @@
 
 import { SelectableTeam } from '@/data/teams.2024';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+
 
 export const TeamModal = ({ team, isOpen, onClose }: {
   team: SelectableTeam;
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const teamsT = useTranslations('teams');
+  const modalT = useTranslations('modal');
+
   if (!isOpen) return null;
+
 
   const { color, textColor = "text-white", captain, members } = team;
 
@@ -45,11 +51,11 @@ export const TeamModal = ({ team, isOpen, onClose }: {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={headerStyle}>
-          <h2 className="text-xl font-semibold">{team.name}</h2>
-          <p className={captainStyle}>Capitán: {captain}</p>
+          <h2 className="text-xl font-semibold">{teamsT(team.name)}</h2>
+          <p className={captainStyle}>{modalT('captain')}: {captain}</p>
         </div>
         <div className="p-5">
-          <h3 className="text-lg mb-2">Miembros:</h3>
+          <h3 className="text-lg mb-2">{modalT('members')}:</h3>
           <ul className="list-inside list-disc">
             {members.map((member, index) => (
               <li key={index} className="text-gray-700">{member}</li>
@@ -61,7 +67,7 @@ export const TeamModal = ({ team, isOpen, onClose }: {
             onClick={onClose}
             className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700 transition"
           >
-            Cerrar
+            {modalT('close')}
           </button>
         </div>
       </motion.div>

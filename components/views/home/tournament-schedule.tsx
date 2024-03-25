@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GameType } from '@/data/games.2024';
 import { SelectableTeam } from '@/data/teams.2024';
+import { useTranslations } from 'next-intl';
 
 interface MatchProps {
   local: SelectableTeam | undefined;
@@ -13,6 +14,8 @@ interface MatchProps {
 }
 
 const Match: React.FC<MatchProps> = ({ local, visitor, localScore, visitorScore, time, end }) => {
+  const teamsT = useTranslations('teams');
+
   return (
     <motion.div
       className={`match ${end ? '' : 'bg-gray-50'} p-4  shadow`}
@@ -22,16 +25,18 @@ const Match: React.FC<MatchProps> = ({ local, visitor, localScore, visitorScore,
     >
       <div className="time text-sm font-semibold">{time}</div>
       <div className="teams text-lg font-bold">
-        <span>{local?.name || 'Pendiente'}</span> vs <span>{visitor?.name || 'Pendiente'}</span>
+        <span>{local?.name && teamsT(local.name) || teamsT('pending')}</span> vs <span>{visitor?.name && teamsT(visitor.name) || teamsT('pending')}</span>
       </div>
       <div className="score text-md">
-        {end ? `${localScore} - ${visitorScore}` : 'Pendiente'}
+        {end ? `${localScore} - ${visitorScore}` : teamsT('pending')}
       </div>
     </motion.div>
   );
 };
 
 export const TournamentSchedule: React.FC<{ games: Array<Array<GameType>>; gameTypeRounds: string[] }> = ({ games, gameTypeRounds }) => {
+  const gameType = useTranslations('gameType');
+
   return (
     <div className="tournament-schedule space-y-4 text-gray-500">
       {games.map((round, index) => (
@@ -40,7 +45,7 @@ export const TournamentSchedule: React.FC<{ games: Array<Array<GameType>>; gameT
           visible: { opacity: 1, transition: { delay: index * 0.2 } },
         }}>
           <h3 className="text-xl font-bold my-3">{
-            gameTypeRounds[index] === 'League' ? 'Jornada ' + (index + 1) : gameTypeRounds[index] === 'SemiFinal' ? 'Semifinales' : gameTypeRounds[index] === 'Final' ? 'Final' : gameTypeRounds[index] === 'ThirdPlace' ? 'Tercer y cuarto puesto' : 'Quinto y sexto puesto'
+            gameTypeRounds[index] === 'League' ? `${gameType('League')} ` + (index + 1) : gameTypeRounds[index] === 'SemiFinal' ? `${gameType('semiFinal')} ` : gameTypeRounds[index] === 'Final' ? `${gameType('final')} ` : gameTypeRounds[index] === 'ThirdPlace' ? `${gameType('thirdPlace')} ` : `${gameType('fifthPlace')} `
           }</h3>
           {round.map((game, gameIndex) => (
             <Match

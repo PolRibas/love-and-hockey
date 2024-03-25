@@ -1,47 +1,47 @@
 export interface SelectableTeam {
     name: string;
     color: string;
-    captain: string;
+    captain?: string;
     textColor?: string;
     members: string[]
 }
 
 export const teams2024: SelectableTeam[] = [
     {
-        name: "Equipo Verde",
+        name: "green",
         color: "bg-green-500",
-        captain: "Pendiente",
+        captain: undefined,
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
-        name: "Equipo Rojo",
+        name: "red",
         color: "bgRed",
-        captain: "Pendiente",
+        captain: undefined,
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
-        name: "Equipo Azul",
+        name: "blue",
         color: "bgBlue",
-        captain: "Pendiente",
+        captain: undefined,
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
-        name: "Equipo Amarillo",
+        name: "yellow",
         color: "bg-yellow-500",
-        captain: "Pendiente",
+        captain: undefined,
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
-        name: "Equipo Blanco",
+        name: "white",
         color: "bg-white",
-        captain: "Pendiente", 
+        captain: undefined, 
         textColor: "text-black",
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },
     {
-        name: "Equipo Negro",
+        name: "black",
         color: "bg-black",
-        captain: "Pendiente", 
+        captain: undefined, 
         textColor: "text-white",
         members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
     },

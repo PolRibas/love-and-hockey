@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+
 
 export const HomeBanner = () => {
+  const t = useTranslations('banner');
   const bannerVariants = {
     hidden: { scale: 0.95, opacity: 0 },
     visible: {
@@ -35,13 +38,13 @@ export const HomeBanner = () => {
         className="text-2xl md:text-3xl font-bold mb-3"
         variants={itemVariants}
       >
-        Trae tu mejor atuendo y espíritu competitivo.
+        {t('title')}
       </motion.h2>
       <motion.p
         className="text-md md:text-xl"
         variants={itemVariants}
       >
-        ¡Empecemos el verano con amor y buen hockey!
+        {t('subtitle')}
       </motion.p>
     </motion.div>
   );

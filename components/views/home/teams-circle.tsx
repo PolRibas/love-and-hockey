@@ -3,10 +3,13 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { TeamModal } from './team-modal';
 import { SelectableTeam } from '@/data/teams.2024';
+import { useTranslations } from 'next-intl';
+
 
 export const TeamsCircle = ({ teams }: { teams: SelectableTeam[] }) => {
   const [selectedTeam, setSelectedTeam] = useState<SelectableTeam | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const t = useTranslations('teams');
 
   const handleCircleClick = (team: SelectableTeam) => {
     setSelectedTeam(team);
@@ -43,8 +46,8 @@ export const TeamsCircle = ({ teams }: { teams: SelectableTeam[] }) => {
           variants={circleVariants}
         >
           <div className={`text-center ${team.textColor || "text-white"} p-2`}>
-            <p className="font-bold text-md">{team.name}</p>
-            <p className='text-sm'>{team.captain}</p>
+            <p className="font-bold text-md">{t(team.name)}</p>
+            <p className='text-sm'>{team.captain || t('pending')}</p>
           </div>
         </motion.div>
       ))}

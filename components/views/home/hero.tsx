@@ -2,10 +2,13 @@ import { motion } from "framer-motion"
 import { useState, useEffect, useCallback } from "react";
 import Countdown from "react-countdown"
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+
 
 export const HomeHero = () => {
   const [isComplete, setIsComplete] = useState(false);
   const [countdownKey, setCountdownKey] = useState<number | null>(null);
+  const t = useTranslations('countdown');
 
   const countdownRenderer = useCallback(({ days, hours, minutes, seconds, total }: {
     days: number;
@@ -18,10 +21,10 @@ export const HomeHero = () => {
       <dl className="text-center w-full">
         <div className="grid grid-cols-4 sm:grid-cols-4 gap-0 w-full ">
           {[
-            { value: days, unit: 'Días' },
-            { value: hours, unit: 'Horas' },
-            { value: minutes, unit: 'Minutos' },
-            { value: seconds, unit: 'Segundos' },
+            { value: days, unit: t('days') },
+            { value: hours, unit: t('hours') },
+            { value: minutes, unit: t('minutes') },
+            { value: seconds, unit: t('seconds') },
           ].map((time, index) => (
             <dd key={index} className="font-bold text-white p-4 flex flex-col items-center justify-center">
               <div className="text-lg sm:text-3xl">{time.value}</div>
@@ -31,7 +34,7 @@ export const HomeHero = () => {
         </div>
       </dl>
     );
-  }, [])
+  }, [t])
   useEffect(() => {
     setCountdownKey(new Date('2024-06-29T12:00:00Z').getTime());
   }, []);

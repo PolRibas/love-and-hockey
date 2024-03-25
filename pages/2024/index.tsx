@@ -5,6 +5,7 @@ import { gameTypeList, games2024 } from '@/data/games.2024';
 import { HomeTabs } from '@/components/views/home/home-tabs';
 
 
+
 const Home = () => {
 
 

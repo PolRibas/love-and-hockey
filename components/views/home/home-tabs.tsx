@@ -4,10 +4,15 @@ import { GameType } from '@/data/games.2024';
 import { TournamentSchedule } from './tournament-schedule';
 import { TeamStandings } from './teams-standings';
 import { SelectableTeam } from '@/data/teams.2024';
+import { useTranslations } from 'next-intl';
+
 // Importa aquí tu componente de clasificación cuando lo tengas listo
 // import TeamStandings from './TeamStandings';
 
 export const HomeTabs = ({ games, gameTypeRounds, teams }: { games: Array<Array<GameType>> ; gameTypeRounds: string[], teams: SelectableTeam[]}) => {
+  const classificationT = useTranslations('classification');
+  const calendarT = useTranslations('calendar');
+
   const [activeTab, setActiveTab] = useState('schedule');
 
   const tabVariants = {
@@ -23,13 +28,13 @@ export const HomeTabs = ({ games, gameTypeRounds, teams }: { games: Array<Array<
             className={`flex-1 py-4 text-xl font-semibold ${activeTab === 'schedule' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
             onClick={() => setActiveTab('schedule')}
           >
-            Calendario
+            {calendarT('title')}
           </button>
           <button
             className={`flex-1 py-4 text-xl font-semibold ${activeTab === 'standings' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
             onClick={() => setActiveTab('standings')}
           >
-            Clasificación
+            {classificationT('title')}
           </button>
         </div>
         <div className="p-4">
