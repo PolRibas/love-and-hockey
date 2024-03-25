@@ -15,7 +15,7 @@ interface MatchProps {
 const Match: React.FC<MatchProps> = ({ local, visitor, localScore, visitorScore, time, end }) => {
   return (
     <motion.div
-      className={`match ${end ? 'bg-green-100' : 'bg-gray-100'} p-4  shadow`}
+      className={`match ${end ? '' : 'bg-gray-50'} p-4  shadow`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -33,13 +33,13 @@ const Match: React.FC<MatchProps> = ({ local, visitor, localScore, visitorScore,
 
 export const TournamentSchedule: React.FC<{ games: Array<Array<GameType>>; gameTypeRounds: string[] }> = ({ games, gameTypeRounds }) => {
   return (
-    <div className="tournament-schedule space-y-4">
+    <div className="tournament-schedule space-y-4 text-gray-500">
       {games.map((round, index) => (
         <motion.div key={index} className="round" initial="hidden" animate="visible" variants={{
           hidden: { opacity: 0 },
           visible: { opacity: 1, transition: { delay: index * 0.2 } },
         }}>
-          <h3 className="text-xl font-bold mb-2">{
+          <h3 className="text-xl font-bold my-3">{
             gameTypeRounds[index] === 'League' ? 'Jornada ' + (index + 1) : gameTypeRounds[index] === 'SemiFinal' ? 'Semifinales' : gameTypeRounds[index] === 'Final' ? 'Final' : gameTypeRounds[index] === 'ThirdPlace' ? 'Tercer y cuarto puesto' : 'Quinto y sexto puesto'
           }</h3>
           {round.map((game, gameIndex) => (

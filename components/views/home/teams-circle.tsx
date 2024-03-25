@@ -30,7 +30,7 @@ export const TeamsCircle = ({ teams }: { teams: SelectableTeam[] }) => {
 
   return (
     <motion.div
-      className="flex flex-wrap justify-center items-center mt-8 mb-8"
+      className="flex flex-wrap justify-center items-center mb-8"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

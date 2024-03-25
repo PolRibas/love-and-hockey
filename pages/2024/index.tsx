@@ -20,8 +20,8 @@ const Home = () => {
       </Head>
       <main className='bg-gradient-to-tr from-blue-500 to-pink-500'>
         <HomeHero />
-        <HomeBanner />
         <TeamsCircle teams={teams2024} />
+        <HomeBanner />
         <HomeTabs teams={teams2024} games={games2024} gameTypeRounds={gameTypeList as unknown as string[]}/>
         {/* <HomeBannerTwo />
         <PrizesBlock />
