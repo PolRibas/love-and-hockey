@@ -97,7 +97,9 @@ export const TeamStandings = ({ games, teams, gameTypeRounds }: {
         </dl>
       </div>
       <div className="px-4 py-5 sm:px-6 mt-4">
-        <h2 className="text-lg leading-6 font-medium text-gray-900">Eliminatorias</h2>
+        <h2 className="text-lg leading-6 font-medium text-gray-900">
+          {classificationT('playoff')}
+        </h2>
       </div>
       {games.map((round, index) => gameTypeRounds[index] === 'League' ? null : (
         <div key={index} className="border-t border-gray-200 px-4 py-5 sm:px-6">
