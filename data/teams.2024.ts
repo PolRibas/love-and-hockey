@@ -10,39 +10,39 @@ export const teams2024: SelectableTeam[] = [
     {
         name: "green",
         color: "bg-green-500",
-        captain: undefined,
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        captain: 'Mica Conte',
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
     {
         name: "red",
         color: "bgRed",
-        captain: undefined,
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        captain: 'Lucas Valero',
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
     {
         name: "blue",
         color: "bgBlue",
-        captain: undefined,
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        captain: 'Candela Liz',
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
     {
         name: "yellow",
         color: "bg-yellow-500",
-        captain: undefined,
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        captain: 'Alex Fernandez',
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
     {
         name: "white",
         color: "bg-white",
-        captain: undefined, 
+        captain: 'Nati Nogueira', 
         textColor: "text-black",
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
     {
         name: "black",
         color: "bg-black",
-        captain: undefined, 
+        captain: 'Andres Orellana', 
         textColor: "text-white",
-        members: ["1. ", "2. ", "3. ", "4. ", "5. ", "6. ", "7. ", "8. "]
+        members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
 ];
