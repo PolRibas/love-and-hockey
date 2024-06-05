@@ -34,7 +34,7 @@ export const teams2024: SelectableTeam[] = [
     {
         name: "white",
         color: "bg-white",
-        captain: 'Nati Nogueira', 
+        captain: 'Rochi Pierini', 
         textColor: "text-black",
         members: ["1. ---", "2. ---", "3. ---", "4. ---", "5. ---", "6. ---", "7. ---", "8. ---"]
     },
