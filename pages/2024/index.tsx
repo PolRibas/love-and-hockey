@@ -19,7 +19,13 @@ const Home = () => {
         <meta property="og:image" content="/logo.webp" />
         <meta property="og:url" content="https://love-and-hockey.vercel.app/" />
       </Head>
-      <main className='bg-gradient-to-tr from-blue-500 to-pink-500'>
+      <main className='bg-gradient-to-tr from-blue-500 to-pink-500' style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
         <HomeHero />
         {/* <TeamsCircle teams={teams2024} /> */}
         <HomeBanner />
