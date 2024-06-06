@@ -11,10 +11,13 @@ const Home = () => {
   const gradient = {
     animate: {
       background: [
-        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)"
+        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
       ],
       transition: {
-        duration: 10,
+        duration: 40,
         ease: "easeInOut",
         loop: Infinity,
         repeatDelay: 1
