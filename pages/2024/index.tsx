@@ -3,28 +3,24 @@ import { HomeBanner, HomeHero, TeamsCircle } from '@/components';
 // import { teams2024 } from '@/data/teams.2024';
 // import { gameTypeList, games2024 } from '@/data/games.2024';
 // import { HomeTabs } from '@/components/views/home/home-tabs';
-// import { motion } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
-
-
+import { motion } from 'framer-motion';
 
 
 
 const Home = () => {
-  const gradients = [
-    "linear-gradient(to top right, #3490dc, #f687b3)", // light tones
-    "linear-gradient(to top right, #2779bd, #eb5286)", // your original tones
-    "linear-gradient(to top right, #1c3d5a, #9f1239)"  // dark tones
-  ];
-  const [currentGradient, setCurrentGradient] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentGradient((current) => (current + 1) % gradients.length);
-    }, 10000); // Change gradient every 10 seconds
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const gradient = {
+    animate: {
+      background: [
+        "linear-gradient(to top right, #db36a4, #f7ff00)", "linear-gradient(to top right, #f7ff00, #db36a4)", "linear-gradient(to top right, #24c6dc, #514a9d)"
+      ],
+      transition: {
+        duration: 10,
+        ease: "easeInOut",
+        loop: Infinity,
+        repeatDelay: 1
+      }
+    }
+  };
 
   return (
     <>
@@ -36,7 +32,7 @@ const Home = () => {
         <meta property="og:image" content="/logo.webp" />
         <meta property="og:url" content="https://love-and-hockey.vercel.app/" />
       </Head>
-      <main
+      <motion.main
         className='bg-gradient-to-tr from-blue-500 to-pink-500'
         style={{
           minHeight: '100vh',
@@ -44,9 +40,10 @@ const Home = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          background: gradients[currentGradient],
-          transition: 'background 1s ease-in-out'
         }}
+        variants={gradient}
+        initial="background"
+        animate="animate"
       >
         <HomeHero />
         {/* <TeamsCircle teams={teams2024} /> */}
@@ -56,7 +53,7 @@ const Home = () => {
         <PrizesBlock />
         <TournamentDescription /> */}
         <div className='p-10'></div>
-      </main>
+      </motion.main>
     </>
   );
 };
