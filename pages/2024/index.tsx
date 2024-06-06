@@ -10,7 +10,11 @@ import { motion } from 'framer-motion';
 const Home = () => {
   const gradient = {
     animate: {
-      background: ["linear-gradient(to top right, #89f7fe, #66a6ff)", "linear-gradient(to top right, #f7ff00, #db36a4)", "linear-gradient(to top right, #24c6dc, #514a9d)"],
+      background: [
+        "linear-gradient(to top right, #3490dc, #f687b3)", // tonos más claros de azul y rosa
+        "linear-gradient(to top right, #2779bd, #eb5286)", // tonos originales que estabas usando
+        "linear-gradient(to top right, #1c3d5a, #9f1239)"  // tonos más oscuros de azul y rosa
+      ],
       transition: {
         duration: 10,
         ease: "easeInOut",
