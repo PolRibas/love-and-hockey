@@ -11,7 +11,7 @@ const Home = () => {
   const gradient = {
     animate: {
       background: [
-        "linear-gradient(to top right, #db36a4, #f7ff00)", "linear-gradient(to top right, #f7ff00, #db36a4)", "linear-gradient(to top right, #24c6dc, #514a9d)"
+        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #f7ff00, #db36a4)", "linear-gradient(to top right, #db36a4, #514a9d)"
       ],
       transition: {
         duration: 10,
