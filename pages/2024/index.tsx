@@ -1,13 +1,24 @@
 import Head from 'next/head';
 import { HomeBanner, HomeHero, TeamsCircle } from '@/components';
-import { teams2024 } from '@/data/teams.2024';
-import { gameTypeList, games2024 } from '@/data/games.2024';
-import { HomeTabs } from '@/components/views/home/home-tabs';
+// import { teams2024 } from '@/data/teams.2024';
+// import { gameTypeList, games2024 } from '@/data/games.2024';
+// import { HomeTabs } from '@/components/views/home/home-tabs';
+import { motion } from 'framer-motion';
 
 
 
 const Home = () => {
-
+  const gradient = {
+    animate: {
+      background: ["linear-gradient(to top right, #89f7fe, #66a6ff)", "linear-gradient(to top right, #f7ff00, #db36a4)", "linear-gradient(to top right, #24c6dc, #514a9d)"],
+      transition: {
+        duration: 10,
+        ease: "easeInOut",
+        loop: Infinity,
+        repeatDelay: 1
+      }
+    }
+  };
 
   return (
     <>
@@ -19,13 +30,19 @@ const Home = () => {
         <meta property="og:image" content="/logo.webp" />
         <meta property="og:url" content="https://love-and-hockey.vercel.app/" />
       </Head>
-      <main className='bg-gradient-to-tr from-blue-500 to-pink-500' style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+      <motion.main
+        className='bg-gradient-to-tr from-blue-500 to-pink-500'
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        variants={gradient}
+        initial="background"
+        animate="animate"
+      >
         <HomeHero />
         {/* <TeamsCircle teams={teams2024} /> */}
         <HomeBanner />
@@ -34,7 +51,7 @@ const Home = () => {
         <PrizesBlock />
         <TournamentDescription /> */}
         <div className='p-10'></div>
-      </main>
+      </motion.main>
     </>
   );
 };
