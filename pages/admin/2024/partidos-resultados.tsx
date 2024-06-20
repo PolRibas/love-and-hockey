@@ -121,6 +121,7 @@ const PartidosResultados = () => {
         overlayClassName="modal-overlay"
       >
         <h2 className="text-2xl font-bold mb-4">Editar Partido</h2>
+        <h2 className="text-xl font-bold mb-4">{selectedMatch?.local.color} - {selectedMatch?.visitor.color}</h2>
         {selectedMatch && (
           <form onSubmit={handleEditMatch}>
             <div className="mb-4">
@@ -145,6 +146,7 @@ const PartidosResultados = () => {
             </div>
             <div className="mb-4">
               <label className="block text-gray-700">Resultado</label>
+
               <div className="flex space-x-4">
                 <input
                   type="number"
@@ -162,15 +164,19 @@ const PartidosResultados = () => {
                   required
                 />
               </div>
+              <div className="flex space-x-10 mt-1">
+                <h2 className="text-s font-bold w-full">{selectedMatch.local.color}</h2>
+                <h2 className="text-s font-bold w-full">{selectedMatch.visitor.color}</h2>
+              </div>
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Jugado</label>
+            <div className="mb-4 flex">
               <input
                 type="checkbox"
-                className="mt-1 p-2"
+                className="mt-1 p-2 mr-4"
                 checked={selectedMatch.played}
                 onChange={(e) => setSelectedMatch({ ...selectedMatch, played: e.target.checked })}
               />
+              <label className="block text-gray-700">Jugado</label>
             </div>
             <button
               type="submit"
