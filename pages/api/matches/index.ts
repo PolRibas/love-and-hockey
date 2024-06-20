@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'GET':
       try {
         const matches = await Match.find({}).populate('local visitor');
-        res.status(200).json({ success: true, data: matches });
+        res.status(200).json({ success: true, data: matches.sort((b, a) => new Date(b.time).getTime() - new Date(a.time).getTime()) });
       } catch (error) {
         res.status(400).json({ success: false, error });
       }

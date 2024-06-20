@@ -66,6 +66,7 @@ const Clasification = () => {
             <thead>
               <tr>
                 <th className="py-2 text-left">Equipo</th>
+                <th className="py-2">PJ</th>
                 <th className="py-2">GF</th>
                 <th className="py-2">GC</th>
                 <th className="py-2">P</th>
@@ -75,6 +76,7 @@ const Clasification = () => {
               {standings.map((team, index) => (
                 <tr key={team.team} className="text-center border-t">
                   <td className="py-2 text-left">{index + 1}. {team.team}</td>
+                  <td className="py-2">{team.wins + team.losses + team.draws}</td>
                   <td className="py-2">{team.scored}</td>
                   <td className="py-2">{team.conceded}</td>
                   <td className="py-2 font-bold">{team.points}</td>
