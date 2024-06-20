@@ -9,12 +9,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   await dbConnect();
 
   try {
-    const matches = await Match.find({}).populate('local visitor');
+    const matches = await Match.find({ played: true }).populate('local visitor');
     const teams = await Team.find({});
-    
+
     const standings = teams.map(team => {
       const stats = {
-        team: team.name,
+        team: team.color,
         wins: 0,
         losses: 0,
         draws: 0,
@@ -44,10 +44,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       });
 
+
       return stats;
     });
 
-    res.status(200).json({ success: true, data: standings });
+    console.log({ standings })
+    res.status(200).json({
+      success: true, data: standings.sort((a, b) => {
+        if (a.points === b.points) {
+          const deferenceA = a.scored - a.conceded;
+          const differenceB = b.scored - b.conceded;
+          if (deferenceA !== differenceB) {
+            return differenceB - deferenceA;
+          }
+          return b.scored - a.scored
+        }
+        return b.points - a.points;
+      })
+    });
   } catch (error) {
     res.status(400).json({ success: false, error });
   }

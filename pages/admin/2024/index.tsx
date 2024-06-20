@@ -1,4 +1,3 @@
-// pages/admin/2024.tsx
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -29,6 +28,18 @@ const Page2024 = () => {
             onClick={() => router.push('/admin/2024/partidos-resultados')}
           >
             Partidos y Resultados
+          </button>
+          <button
+            className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            onClick={() => router.push('/admin/2024/clasification')}
+          >
+            Clasification
+          </button>
+          <button
+            className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            onClick={() => router.push('/admin/2024/playoffs')}
+          >
+            Playoff
           </button>
           <button
             className="w-full p-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
