@@ -53,7 +53,9 @@ const Home = () => {
         <HomeHero />
         {/* <TeamsCircle /> */}
         <HomeBanner />
-        <ScheduleAndStandings />
+        <div className='p-4'>
+          <ScheduleAndStandings />
+        </div>
         {/* <HomeBannerTwo />
         <PrizesBlock />
         <TournamentDescription /> */}
