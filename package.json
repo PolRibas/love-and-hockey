@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "^3.6.0",
     "framer-motion": "^11.0.20",
     "i18next": "^23.10.1",
     "mongoose": "^8.4.3",

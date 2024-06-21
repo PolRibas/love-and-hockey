@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Tabs from './tabs';
+import getConfig from 'next/config';
+
 
 interface Team {
   team: string;
@@ -58,6 +60,8 @@ export const ScheduleAndStandings = () => {
   const [matches, setMatches] = useState<Match[]>([]);
   const [playoffMatches, setPlayoffMatches] = useState<Match[]>([]);
   const [standings, setStandings] = useState<Team[]>([]);
+  const { publicRuntimeConfig } = getConfig();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,8 +80,17 @@ export const ScheduleAndStandings = () => {
   }, []);
 
   const renderMatches = (matches: Match[]) => {
+    const formatter = new Intl.DateTimeFormat('es-ES', {
+      timeZone: publicRuntimeConfig.timeZone || 'UTC',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
     const groupedMatches = matches.reduce((acc: any, match) => {
-      const matchTime = new Date(match.time).toLocaleString();
+      const matchTime = formatter.format(new Date(match.time));
       if (!acc[matchTime]) {
         acc[matchTime] = [];
       }
