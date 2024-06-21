@@ -48,7 +48,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return stats;
     });
 
-    console.log({ standings })
     res.status(200).json({
       success: true, data: standings.sort((a, b) => {
         if (a.points === b.points) {

@@ -42,7 +42,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await Match.insertMany(matches);
         res.status(200).json({ success: true });
       } catch (error) {
-        console.log('error', error)
         res.status(400).json({ success: false, error });
       }
       break;

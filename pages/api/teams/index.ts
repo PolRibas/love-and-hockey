@@ -33,7 +33,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     case 'POST':
       try {
-        console.log('req.body', req.body)
         const team = await Team.create(req.body);
         res.status(201).json({ success: true, data: team });
       } catch (error) {

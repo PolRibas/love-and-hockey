@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import { HomeBanner, HomeHero, TeamsCircle } from '@/components';
-// import { teams2024 } from '@/data/teams.2024';
-// import { gameTypeList, games2024 } from '@/data/games.2024';
-// import { HomeTabs } from '@/components/views/home/home-tabs';
+import { teams2024 } from '@/data/teams.2024';
+import { gameTypeList, games2024 } from '@/data/games.2024';
+import { HomeTabs } from '@/components/views/home/home-tabs';
 import { motion } from 'framer-motion';
+import { ScheduleAndStandings } from '@/components/views/home/schedule-and-standings';
 
 
 
@@ -43,15 +44,16 @@ const Home = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          margin: '0 auto',
         }}
         variants={gradient}
         initial="background"
         animate="animate"
       >
         <HomeHero />
-        {/* <TeamsCircle teams={teams2024} /> */}
+        {/* <TeamsCircle /> */}
         <HomeBanner />
-        {/* <HomeTabs teams={teams2024} games={games2024} gameTypeRounds={gameTypeList as unknown as string[]}/> */}
+        <ScheduleAndStandings />
         {/* <HomeBannerTwo />
         <PrizesBlock />
         <TournamentDescription /> */}

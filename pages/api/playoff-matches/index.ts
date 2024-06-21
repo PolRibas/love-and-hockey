@@ -35,13 +35,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const match = await PlayoffMatch.create(req.body);
         res.status(201).json({ success: true, data: match });
       } catch (error) {
-        console.log('error', error);
         res.status(400).json({ success: false, error });
       }
       break;
     case 'PUT':
       try {
-        console.log('req.body', req.body);
         const match = await PlayoffMatch.findByIdAndUpdate(id, req.body, {
           new: true,
           runValidators: true,

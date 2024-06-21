@@ -1,12 +1,25 @@
-// components/TeamModal.jsx
-
-import { SelectableTeam } from '@/data/teams.2024';
+import { ITeamPlatform } from '@/models';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
+const getTeamColor = (color: string) => {
+  switch (color) {
+    case 'Rojo':
+      return `bgRed`;
+    case 'Amarillo':
+      return `bg-yellow-500`;
+    case 'Verde':
+      return `bg-green-500`;
+    case 'Azul':
+      return `bgBlue`;
+    case 'Blanco':
+      return `bg-white`;
+  }
+  return `bg-black`;
+}
 
 export const TeamModal = ({ team, isOpen, onClose }: {
-  team: SelectableTeam;
+  team: ITeamPlatform;
   isOpen: boolean;
   onClose: () => void;
 }) => {
@@ -15,11 +28,11 @@ export const TeamModal = ({ team, isOpen, onClose }: {
 
   if (!isOpen) return null;
 
+  const { color, captain, players } = team;
 
-  const { color, textColor = "text-white", captain, members } = team;
+  const textColor = color !== 'Blanco' ? "text-white" : "text-gray-800";
 
-  // Estilos dinámicos basados en los colores del equipo
-  const headerStyle = `bg-opacity-90 ${color} ${textColor} p-5 rounded-t-lg`;
+  const headerStyle = `bg-opacity-90 ${getTeamColor(color)} ${textColor} p-5 rounded-t-lg`;
   const captainStyle = `${textColor} font-semibold`;
 
   const backdropVariants = {
@@ -51,13 +64,13 @@ export const TeamModal = ({ team, isOpen, onClose }: {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={headerStyle}>
-          <h2 className="text-xl font-semibold">{teamsT(team.name)}</h2>
+          <h2 className="text-xl font-semibold">{color}</h2>
           <p className={captainStyle}>{modalT('captain')}: {captain}</p>
         </div>
         <div className="p-5">
           <h3 className="text-lg mb-2">{modalT('members')}:</h3>
           <ul className="list-inside list-disc">
-            {members.map((member, index) => (
+            {players.map((member, index) => (
               <li key={index} className="text-gray-700">{member}</li>
             ))}
           </ul>

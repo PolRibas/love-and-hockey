@@ -39,11 +39,7 @@ export const HomeHero = () => {
     setCountdownKey(new Date('2024-07-06T15:00:00Z').getTime());
   }, []);
 
-  useEffect(() => {
-    if (isComplete) {
-      console.log('The countdown has completed!');
-    }
-  }, [isComplete]);
+
   return <div className="flex flex-col items-center justify-center p-10">
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
