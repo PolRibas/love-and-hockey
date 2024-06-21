@@ -6,7 +6,7 @@ const nextConfig = {
     defaultLocale: 'ca-ES',
   },
   publicRuntimeConfig: {
-    timeZone: process.env.NEXT_PUBLIC_TIME_ZONE || 'Europe/Madrid', // Establecer la zona horaria de Barcelona
+    timeZone: process.env.NEXT_PUBLIC_TIME_ZONE || 'UTC',
   },
 };
 
