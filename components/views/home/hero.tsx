@@ -36,7 +36,7 @@ export const HomeHero = () => {
     );
   }, [t])
   useEffect(() => {
-    setCountdownKey(new Date('2024-07-06T15:00:00Z').getTime());
+    setCountdownKey(new Date('2024-07-06T17:00:00Z').getTime());
   }, []);
 
 
