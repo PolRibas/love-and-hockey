@@ -93,7 +93,7 @@ export const ScheduleAndStandings = () => {
       minute: '2-digit',
       second: '2-digit',
     });
-    const groupedMatches = matches.reduce((acc: any, match) => {
+    const groupedMatches = matches?.reduce((acc: any, match) => {
       const matchTime = formatter.format(new Date(match.time));
       if (!acc[matchTime]) {
         acc[matchTime] = [];
