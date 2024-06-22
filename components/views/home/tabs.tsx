@@ -3,12 +3,13 @@ import { useState } from 'react';
 interface TabProps {
   tabs: string[];
   children: React.ReactNode[];
+  loading: boolean;
 }
 
-const Tabs = ({ tabs, children }: TabProps) => {
+const Tabs = ({ tabs, children, loading }: TabProps) => {
   const [activeTab, setActiveTab] = useState(0);
 
-  return (
+  return loading ? null : (
     <div className="w-full bg-white shadow-lg rounded-lg py-2 max-w-5xl w-full z-10">
       <div className="flex justify-center mb-4 border-b w-full">
         {tabs.map((tab, index) => (

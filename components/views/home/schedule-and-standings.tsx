@@ -59,6 +59,7 @@ const fetchClassification = async () => {
 export const ScheduleAndStandings = () => {
   const [matches, setMatches] = useState<Match[]>([]);
   const [playoffMatches, setPlayoffMatches] = useState<Match[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(true);
   const [standings, setStandings] = useState<Team[]>([]);
   const { publicRuntimeConfig } = getConfig();
 
@@ -74,6 +75,9 @@ export const ScheduleAndStandings = () => {
       setMatches(matchesData);
       setPlayoffMatches(playoffMatchesData);
       setStandings(standingsData);
+      if (matchesData.length > 0, playoffMatchesData.length > 0, standingsData.length > 0) {
+        setLoading(false);
+      }
     };
 
     fetchData();
@@ -115,7 +119,7 @@ export const ScheduleAndStandings = () => {
   };
 
   return (
-    <Tabs tabs={['Calendario', 'Clasificación & Playoffs']}>
+    <Tabs tabs={['Calendario', 'Clasificación & Playoffs']} loading={isLoading}>
       <div>
         <h2 className="text-2xl font-bold mb-4">Calendario de Partidos</h2>
         {renderMatches(matches)}
