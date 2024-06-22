@@ -102,7 +102,7 @@ export const ScheduleAndStandings = () => {
       return acc;
     }, {});
 
-    return Object.entries(groupedMatches).map(([time, matches]: any, index) => (
+    return Object.entries(groupedMatches || {}).map(([time, matches]: any, index) => (
       <div key={index} className="mb-4">
         <h3 className="text-lg font-bold mb-2">{time}</h3>
         {matches.map((match: Match) => (
