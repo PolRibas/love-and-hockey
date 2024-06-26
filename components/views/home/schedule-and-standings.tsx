@@ -21,6 +21,7 @@ interface Match {
   time: string;
   field: string;
   played: boolean;
+  round?: string;
 }
 
 const fetchMatches = async () => {
@@ -107,11 +108,12 @@ export const ScheduleAndStandings = () => {
         <h3 className="text-lg font-bold mb-2">{time}</h3>
         {matches.map((match: Match) => (
           <div key={match._id} className="border p-4 mb-2 rounded-lg shadow-sm bg-white">
-            <p className="text-sm text-gray-500">Field: {match.field}</p>
+            {match.round && <p className="text-sm font-semibold">{match.round}</p>}
             <p className="text-md font-semibold">{match.local?.color || 'pending'} vs {match.visitor?.color || 'pending'}</p>
             <p className="text-sm text-gray-500">
               Score: {match.localScore} - {match.visitorScore}
             </p>
+            <p className="text-sm text-gray-500">Field: {match.field}</p>
           </div>
         ))}
       </div>

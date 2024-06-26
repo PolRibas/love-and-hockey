@@ -5,17 +5,21 @@ import { gameTypeList, games2024 } from '@/data/games.2024';
 import { HomeTabs } from '@/components/views/home/home-tabs';
 import { motion } from 'framer-motion';
 import { ScheduleAndStandings } from '@/components/views/home/schedule-and-standings';
+import { use, useEffect, useState } from 'react';
+import { set } from 'mongoose';
 
 
 
 const Home = () => {
+  const [showSchedule, setShowSchedule] = useState(false);
   const gradient = {
     animate: {
       background: [
-        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
-        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
-        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
-        "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        "bg-white"
+        // "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        // "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        // "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
+        // "linear-gradient(to top right, #db36a4, #24c6dc)", "linear-gradient(to top right, #24c6dc, #db36a4)", "linear-gradient(to top right, #db36a4, #24c6dc)",
       ],
       transition: {
         duration: 40,
@@ -25,6 +29,12 @@ const Home = () => {
       }
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSchedule(true);
+    }, 2000);
+  });
 
   return (
     <>
@@ -37,23 +47,24 @@ const Home = () => {
         <meta property="og:url" content="https://love-and-hockey.vercel.app/" />
       </Head>
       <motion.main
-        className='bg-gradient-to-tr from-blue-500 to-pink-500'
+        // className='bg-gradient-to-tr from-blue-500 to-pink-500'
         style={{
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          // justifyContent: 'center',
           alignItems: 'center',
           margin: '0 auto',
+          background: '#F7F7F7'
         }}
         variants={gradient}
         initial="background"
         animate="animate"
       >
         <HomeHero />
-        {/* <TeamsCircle /> */}
+        <TeamsCircle />
         <HomeBanner />
-        <ScheduleAndStandings />
+        {showSchedule && <ScheduleAndStandings />}
         {/* <HomeBannerTwo />
         <PrizesBlock />
         <TournamentDescription /> */}

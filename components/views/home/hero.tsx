@@ -26,7 +26,7 @@ export const HomeHero = () => {
             { value: minutes, unit: t('minutes') },
             { value: seconds, unit: t('seconds') },
           ].map((time, index) => (
-            <dd key={index} className="font-bold text-white p-4 flex flex-col items-center justify-center">
+            <dd key={index} className="font-bold text-gray-500 p-4 flex flex-col items-center justify-center">
               <div className="text-lg sm:text-3xl">{time.value}</div>
               <div className="text-xs sm:text-base uppercase mt-2">{time.unit}</div>
             </dd>
@@ -46,7 +46,7 @@ export const HomeHero = () => {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
       style={{ backgroundColor: '#f7f7f7' }}
-      className='flex flex-col items-center justify-center w-full max-w-md bg-white rounded-lg shadow-lg'
+      className='flex flex-col items-center justify-center w-full max-w-md '
       >
       <Image src="/logo.webp" alt="Event Logo" width={300} height={300} />
     </motion.div>

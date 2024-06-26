@@ -29,7 +29,7 @@ export const HomeBanner = () => {
 
   return (
     <motion.div
-      className="text-white rounded-lg  mx-3 md:mx-16 my-8 mt-0 p-6 text-center"
+      className="text-gray-500 rounded-lg  mx-3 md:mx-16 my-8 mt-0 p-6 text-center"
       initial="hidden"
       animate="visible"
       variants={bannerVariants}
