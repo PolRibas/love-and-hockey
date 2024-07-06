@@ -11,7 +11,6 @@ import { set } from 'mongoose';
 
 
 const Home = () => {
-  const [showSchedule, setShowSchedule] = useState(false);
   const gradient = {
     animate: {
       background: [
@@ -29,12 +28,6 @@ const Home = () => {
       }
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowSchedule(true);
-    }, 2000);
-  });
 
   return (
     <>
@@ -64,7 +57,7 @@ const Home = () => {
         <HomeHero />
         <TeamsCircle />
         <HomeBanner />
-        {showSchedule && <ScheduleAndStandings />}
+        <ScheduleAndStandings />
         {/* <HomeBannerTwo />
         <PrizesBlock />
         <TournamentDescription /> */}

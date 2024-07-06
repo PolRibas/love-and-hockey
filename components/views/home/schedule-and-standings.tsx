@@ -67,17 +67,24 @@ export const ScheduleAndStandings = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [matchesData, playoffMatchesData, standingsData] = await Promise.all([
-        fetchMatches(),
-        fetchPlayoffMatches(),
-        fetchClassification(),
-      ]);
-
-      setMatches(matchesData);
-      setPlayoffMatches(playoffMatchesData);
-      setStandings(standingsData);
-      if (matchesData.length > 0, playoffMatchesData.length > 0, standingsData.length > 0) {
-        setLoading(false);
+      try{
+        const [matchesData, playoffMatchesData, standingsData] = await Promise.all([
+          fetchMatches(),
+          fetchPlayoffMatches(),
+          fetchClassification(),
+        ]);
+  
+        setMatches(matchesData);
+        setPlayoffMatches(playoffMatchesData);
+        setStandings(standingsData);
+        if (matchesData.length > 0, playoffMatchesData.length > 0, standingsData.length > 0) {
+          setLoading(false);
+        }
+      }catch(error){
+        console.error('Error fetching data:', error);
+        setTimeout(() => {
+          fetchData();
+        }, 1000);
       }
     };
 
